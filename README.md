@@ -23,6 +23,7 @@
 2. ดูผลลัพธ์ Unittest และ robot framework จากเครื่อง VM
 3. ทดลองเรียก API 0าก VM 
     - เรียกผ่าน browser โดยการทำ port forwarding จาก vm
+
 -------------------- Task 4 --------------------
 1. ทดสอบ Load test ของ API ที่เรียกใช้บน VM
     - ใช้ JMeter บน Local เซ็ต User 10 คนใน 10 วินาที
