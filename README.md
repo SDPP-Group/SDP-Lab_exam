@@ -29,16 +29,6 @@
     - ใช้ JMeter บน Local เซ็ต User 10 คนใน 10 วินาที
 2. แสดงกราฟ และตอบคำถามเกี่ยวกับค่า Throughput ของการทดลองนี้
 
-# File Hierachy
-- repo
-- |----app
--     |---api.py
--     |---Dockerfile
--     |---requirement.txt 
-- |----Jenkinsfile
-- |----api-unittest.py
-- |----README.md
-
 # Jenkins pipeline
 ---------- [VM1] run jenkins ----------
 1. run unittest [VM2]
