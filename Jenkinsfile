@@ -16,6 +16,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
+                sh 'docker stop $(docker ps -a -q)'
                 sh 'docker build -t registry.gitlab.com/northy007/sdp-lab_exam:latest app/'
             }
         }
