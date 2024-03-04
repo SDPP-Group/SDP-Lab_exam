@@ -21,7 +21,7 @@
 -------------------- Task 3 --------------------
 1. Approve การทำ Merge Request จาก task
 2. ดูผลลัพธ์ Unittest และ robot framework จากเครื่อง VM
-3. ทดลองเรียก API ผาก VM 
+3. ทดลองเรียก API 0าก VM 
     เรียกผ่าน browser โดยการทำ port forwarding จาก vm
 -------------------- Task 4 --------------------
 1. ทดสอบ Load test ของ API ที่เรียกใช้บน VM
@@ -31,14 +31,15 @@
 # File Hierachy
 repo
 |----app
-     |---api.py
-     |---Dockerfile
-     |---requirement.txt 
+    |---api.py
+    |---Dockerfile
+    |---requirement.txt 
 |----Jenkinsfile
 |----api-unittest.py
 |----README.md
 
 # Jenkins pipeline
+---------- [VM1] run jenkins ----------
 1. run unittest [VM2]
 2. create docker image [VM2]
 3. create container [VM2]
