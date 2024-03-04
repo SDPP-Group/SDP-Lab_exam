@@ -11,7 +11,7 @@ pipeline {
                 echo 'Done'
             }
         }
-        stage('Create images of api'){
+        stage('Create images of examapi'){
             agent{
                 label 'testNode'
             }
@@ -19,7 +19,7 @@ pipeline {
                 sh 'docker build -t registry.gitlab.com/northy007/sdp-lab_exam:latest app/'
             }
         }
-        stage('Create container of api'){
+        stage('Create container of examapi'){
             agent{
                 label 'testNode'
             }
@@ -44,7 +44,7 @@ pipeline {
                 sh 'robot SDP-Lab_exam_robot/exam-robot.robot'
             }
         }
-        stage('Push image to a registry')
+        stage('Push image to container registry')
         {
             agent{
                 label 'testNode'
@@ -57,19 +57,19 @@ pipeline {
                 sh 'docker rmi -f registry.gitlab.com/northy007/sdp-lab_exam:latest'
             }
         }
-        stage('Pull image of simple-api from a registry'){
+        stage('Pull image of examapi from a registry'){
             agent{
                 label 'pre-prodNode'
             }
             steps{
                 withCredentials([usernamePassword(credentialsId: 'lnwza007', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        sh 'docker rmi -f registry.gitlab.com/northy007/sdp-lab_exam:latest'
                         sh 'docker login -u ${USERNAME} -p ${PASSWORD} registry.gitlab.com'
-                        sh 'docker push registry.gitlab.com/northy007/sdp-lab_exam'
+                        sh 'docker pull registry.gitlab.com/northy007/sdp-lab_exam'
                 }
-                sh 'docker pull registry.gitlab.com/northy007/sdp-lab_exam'
             }
         }
-        stage('Create containers of simple-api'){
+        stage('Create containers of examapi'){
             agent{
                 label 'pre-prodNode'
             }
