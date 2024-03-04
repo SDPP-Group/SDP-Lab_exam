@@ -16,7 +16,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
-                sh 'docker build -t sdplabexam app'
+                sh 'docker build -t registry.gitlab.com/northy007/sdp-lab_exam app'
             }
         }
         stage('Create container of api'){
@@ -24,7 +24,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
-                sh 'docker run -d -p 5000:5000 sdplabexam'
+                sh 'docker run -d -p 5000:5000 registry.gitlab.com/northy007/sdp-lab_exam'
             }
         }
         stage('Clone Robot repository'){
@@ -52,9 +52,9 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'lnwza007', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u ${USERNAME} -p ${PASSWORD} registry.gitlab.com'
-                        sh 'docker push sdplabexam'
+                        sh 'docker push registry.gitlab.com/northy007/sdp-lab_exam'
                 }
-                sh 'docker rmi -f sdplabexam:latest'
+                sh 'docker rmi -f registry.gitlab.com/northy007/sdp-lab_exam:latest'
             }
         }
         stage('Pull image of simple-api from a registry'){
@@ -64,7 +64,7 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'lnwza007', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u ${USERNAME} -p ${PASSWORD} registry.gitlab.com'
-                        sh 'docker push sdplabexam'
+                        sh 'docker push registry.gitlab.com/northy007/sdp-lab_exam'
                 }
                 sh 'docker pull registry.gitlab.com/northy007/sdp-lab_exam'
             }
@@ -75,7 +75,7 @@ pipeline {
             }
             steps{
                 //sh 'docker stop $(docker ps -q)'
-                sh 'docker run -d -p 5000:5000 sdplabexam'
+                sh 'docker run -d -p 5000:5000 registry.gitlab.com/northy007/sdp-lab_exam'
             }
         }
     }
