@@ -16,7 +16,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
-                sh 'docker build -t registry.gitlab.com/northy007/sdp-lab_exam'
+                sh 'docker build -t sdplabexam app/'
             }
         }
         stage('Clone Robot repository'){
@@ -44,9 +44,9 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'lnwza007', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u ${USERNAME} -p ${PASSWORD} registry.gitlab.com'
-                        sh 'docker push registry.gitlab.com/northy007/sdp-lab_exam'
+                        sh 'docker push sdplabexam'
                 }
-                sh 'docker rmi -f registry.gitlab.com/northy007/sdp-lab_exam:latest'
+                sh 'docker rmi -f sdplabexam:latest'
             }
         }
         stage('Pull image of simple-api from a registry'){
@@ -56,7 +56,7 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'lnwza007', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u ${USERNAME} -p ${PASSWORD} registry.gitlab.com'
-                        sh 'docker push registry.gitlab.com/northy007/sdp-lab_exam'
+                        sh 'docker push sdplabexam'
                 }
                 sh 'docker pull registry.gitlab.com/northy007/sdp-lab_exam'
             }
@@ -67,7 +67,7 @@ pipeline {
             }
             steps{
                 //sh 'docker stop $(docker ps -q)'
-                sh 'docker run -d -p 5000:5000 registry.gitlab.com/northy007/sdp-lab_exam'
+                sh 'docker run -d -p 5000:5000 sdplabexam'
             }
         }
     }
