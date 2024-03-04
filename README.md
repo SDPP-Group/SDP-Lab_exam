@@ -21,7 +21,7 @@
 -------------------- Task 3 --------------------
 1. Approve การทำ Merge Request จาก task
 2. ดูผลลัพธ์ Unittest และ robot framework จากเครื่อง VM
-3. ทดลองเรียก API 0าก VM 
+3. ทดลองเรียก API จาก VM 
     - เรียกผ่าน browser โดยการทำ port forwarding จาก vm
 
 -------------------- Task 4 --------------------

@@ -19,6 +19,14 @@ pipeline {
                 sh 'docker build -t sdplabexam app/'
             }
         }
+        stage('Create container of api'){
+            agent{
+                label 'testNode'
+            }
+            steps{
+                sh 'docker run -d -p 5000:5000 sdplabexam'
+            }
+        }
         stage('Clone Robot repository'){
             agent{
                 label 'testNode'
