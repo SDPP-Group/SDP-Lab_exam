@@ -16,7 +16,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
-                sh 'docker buildx build -t registry.gitlab.com/northy007/sdp-lab_exam/'
+                sh 'docker build -t registry.gitlab.com/northy007/sdp-lab_exam app/'
             }
         }
         stage('Clone Robot repository'){
