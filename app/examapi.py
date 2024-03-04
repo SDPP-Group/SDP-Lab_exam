@@ -27,4 +27,4 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
     #host 0.0.0.0 หมายถึง run ทุก address บนเครื่อง
     #ทั้ง loop back และ ipv4 ที่เครื่องนั้นใช้อยู่
-    #โดยจะ run บย port 5000
+    #โดยจะ run บน port 5000
