@@ -16,7 +16,7 @@ pipeline {
                 label 'testNode'
             }
             steps{
-                sh 'docker build -t sdplabexam app/'
+                sh 'docker build -t sdplabexam'
             }
         }
         stage('Create container of api'){
