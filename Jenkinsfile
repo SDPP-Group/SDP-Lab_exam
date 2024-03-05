@@ -75,7 +75,7 @@ pipeline {
                 label 'pre-prodNode'
             }
             steps{
-                //sh 'docker stop $(docker ps -q)'
+                sh 'docker stop $(docker ps -q)'
                 sh 'docker run -d -p 5000:5000 registry.gitlab.com/northy007/sdp-lab_exam'
             }
         }
