@@ -6,7 +6,7 @@
 4. Commit ไปยัง branch ชื่อ "my-feature-01"
     - git branch my-feature-01
     - git checkout my-feature-01
-    - git add [something]
+    - git add [something]....
     - git commit -m "[something]"
     - git push
 5. ทำการ merge request จาก my-feature-01 ไปยัง main
